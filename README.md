@@ -49,7 +49,7 @@ Deployment has been done on Heroku using the requirements.txt packages
 
 * **Andrew Indeche** - *Final work*
 ## ERRORS
-Homepage is not rendering templates for uploaded images.Current work in progress
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
