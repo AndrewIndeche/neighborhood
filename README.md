@@ -1,5 +1,5 @@
 
-# Gallery App
+# Neighbourhood App
 The project folder contains a Django App of a neighborhood app for tracking changes that are happening in the locality.
 
 
