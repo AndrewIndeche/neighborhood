@@ -19,5 +19,7 @@ from django.conf.urls import url,include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-     url(r'^accounts/', include('registration.backends.simple.urls')),
+    url(r'',include('hood.urls')),
+    url(r'^accounts/', include('django_registration.backends.one_step.urls')),
+    url(r'^accounts/', include('django.contrib.auth.urls')),
 ]
