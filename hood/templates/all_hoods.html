@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load static %}
+{% load bootstrap4 %}
+{% block content %}
+{% include 'home.html' %}
+{% include 'navbar.html' %}
+<div class="sidebar-menu hidden-xs hidden-sm">
+    <div class="top-section">
+          <div class="profile-image">
+            <img src="img/profile.jpg" alt="">
+        </div>
+        <h3 class="profile-title">{{ user.username}}</h3>
+        <p class="profile-description">{{user.email}}</p>
+    </div> <!-- top-section -->
+    <div class="main-navigation">
+        <ul class="navigation">
+            <li><a href="{% url 'new-hood' %}"><i class="fa fa-globe"></i>Add to NeighborHoods</a></li>
+            <li><a href="{% url 'edit-profile' %}"><i class="fa fa-pencil"></i>Edit Profile</a></li>
+            <li><a href="#contact"><i class="fa fa-link"></i>All NeighborHoods</a></li>
+            <li><a href="{% url 'logout' %}" ><i class="fa fa-sign-out"></i>Log Out</a></li>
+        </ul>
+    </div> <!-- .main-navigation -->
+  </div> <!-- .sidebar-menu -->
+  <div class="container">
+          <div class="row">
+          {% for hood in all_hoods %}
+          <div class="col-md-4">
+              <div class="card mb-4" style="min-height:340px">
+                  <img src="{{ hood.hood_logo.url }}" class="card-img-top" alt="{{ hood.name }}">
+                  <div class="card-body">
+                      <h5 class="card-title">{{ hood.name }}  ({{hood.location}}) <span class="ml-4">{{hood.members.count}} member{{hood.members.count|pluralize}}</span></h5>
+                      <p class="card-text">{{hood.description}}</p>
+                      {% if request.user.profile.neighbourhood == hood %}
+                      <a href="{% url 'leave-hood' hood.id %}" class="btn btn-outline-danger btn-sm">Leave Hood</a>
+                      {% elif not request.user.profile.neighbourhood %}
+                      <a href="{% url 'join-hood' hood.id %}" class="btn btn-primary btn-sm">Join Hood</a>
+                      {% endif %}
+                  </div>
+              </div>
+          </div>
+          {% endfor %}
+      </div>
+  </div>
+{% endblock %}
