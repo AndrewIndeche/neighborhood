@@ -3,7 +3,7 @@
 body {
   font-family: 'Poppins', sans-serif;
   height: 100vh;
-  background-image: url("https://i.imgur.com/HgflTDf.jpg") 50% fixed;
+  background-image:url(/static/images/hood.jpg);
   background-size: cover;
 }
 
@@ -163,7 +163,6 @@ body {
       border-bottom-width: 4px;
     }
 
-
 }
 
 footer {
@@ -181,7 +180,11 @@ footer {
 }
 h1{
 padding-left: 16em;
+color: white;
+background-color: black;
 }
 p1{
+color:black;
 padding-left: 48em;
+background-color: white;
 }
