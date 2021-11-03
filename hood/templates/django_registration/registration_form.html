@@ -2,6 +2,7 @@
 {% block content %}
 {% load static %}
 {% load bootstrap4 %}
+{% include 'navbar.html' %}
 <div class="wrapper">
 <form class="login" form action="/accounts/register/" method="post">
   {% csrf_token %}

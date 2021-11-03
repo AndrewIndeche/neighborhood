@@ -1,15 +1,16 @@
 {% extends "base.html" %}
-{% block content %}
 {% load static %}
 {% load bootstrap4 %}
-<body>
-<html>
-<form class="login-form" form action="/accounts/login/" method="post">
+{% block content %}
+{% include 'navbar.html' %}
+<div class="wrapper">
+<form class="login" form action="/accounts/login/" method="post">
   {% csrf_token %}
   {% bootstrap_form form%}
   <button class="login-button" button type="submit" title="login" >Log In</button>
   <input type="hidden" name="next" value="{{next}}">
+  <p>Don't have an account? <a class="signup" href="/accounts/register">Sign Up</a></p>
 </form>
-</body>
-</html>
+<footer><a target="blank" href="https://github.com/AndrewIndeche">Neighborhood App by Andrew</a></footer>
+</div>
 {% endblock %}
