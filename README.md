@@ -1,3 +1,5 @@
+![Screenshot from 2021-11-04 07-32-25](https://user-images.githubusercontent.com/86969595/140274786-5015709d-a578-4408-8f7f-5e2a00ab0a3c.png)
+
 
 # Neighborhood App
 The project folder contains a Django App of a neighborhood app for tracking changes that are happening in the locality.
