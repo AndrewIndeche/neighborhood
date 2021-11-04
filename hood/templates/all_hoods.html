@@ -7,17 +7,31 @@
 <div class="sidebar-menu hidden-xs hidden-sm">
     <div class="top-section">
           <div class="profile-image">
-            <img src="img/profile.jpg" alt="">
+            <img src="{{ user.profile.profile_picture.url }}" alt="">
         </div>
         <h3 class="profile-title">{{ user.username}}</h3>
         <p class="profile-description">{{user.email}}</p>
+        <a href="{% url 'hood' %}" class="btn btn-sm btn-info mt-4">Join</a>
+        {% if user.profile.neighbourhood %}
+       <li class="mb-4">
+           <a href="{% url 'single-hood' user.profile.neighbourhood.id %}">
+               <i class="fas fa-paper-plane"></i>&nbsp;
+               &nbsp;{{user.profile.neighbourhood.name}}
+           </a>
+       </li>
+       {% else %}
+       <li class="mb-4">
+           <a href=""> &nbsp;
+               <strong>No Hood Yet</strong>
+           </a>
+       </li>
+       {% endif %}
     </div> <!-- top-section -->
     <div class="main-navigation">
         <ul class="navigation">
             <li><a href="{% url 'new-hood' %}"><i class="fa fa-globe"></i>Add to NeighborHoods</a></li>
             <li><a href="{% url 'edit-profile' %}"><i class="fa fa-pencil"></i>Edit Profile</a></li>
-            <li><a href="#contact"><i class="fa fa-link"></i>All NeighborHoods</a></li>
-            <li><a href="{% url 'logout' %}" ><i class="fa fa-sign-out"></i>Log Out</a></li>
+              <li><a href="{% url 'logout' %}" ><i class="fa fa-sign-out"></i>Log Out</a></li>
         </ul>
     </div> <!-- .main-navigation -->
   </div> <!-- .sidebar-menu -->
