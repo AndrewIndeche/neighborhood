@@ -5,12 +5,13 @@
 {% include 'navbar.html' %}
 <div class="sidebar-menu hidden-xs hidden-sm">
     <div class="top-section">
+       {% if user.is_authenticated %}
           <div class="profile-image">
             <img src="{{ user.profile.profile_picture.url }}" alt="">
         </div>
         <h3 class="profile-title">{{ user.username}}</h3>
         <p class="profile-description">{{user.email}}</p>
-        {% if user.profile.neighbourhood %}
+         {% if user.profile.neighbourhood %}
        <li class="mb-4" style="color:white" >
            <a href="{% url 'single-hood' user.profile.neighbourhood.id %}">
                <i class="fa fa-home" style="color:white" ></i>&nbsp;
@@ -28,7 +29,7 @@
     <div class="main-navigation">
         <ul class="navigation">
             <li><a href="{% url 'new-hood' %}"><i class="fa fa-globe"></i>Add to NeighborHoods</a></li>
-            <li><a href="{% url 'edit-profile' %}"><i class="fa fa-pencil"></i>Edit Profile</a></li>
+            <li><a href="{% url 'edit-profile' user.username %}"><i class="fa fa-pencil"></i>Edit Profile</a></li>
               <li><a href="{% url 'logout' %}" ><i class="fa fa-sign-out"></i>Log Out</a></li>
         </ul>
     </div> <!-- .main-navigation -->
@@ -53,4 +54,5 @@
           {% endfor %}
       </div>
   </div>
+  {% endif %}
 {% endblock %}

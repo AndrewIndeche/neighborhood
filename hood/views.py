@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 from .models import NeighbourHood, Profile, Business, Post
 from .forms import UpdateProfileForm, NeighbourHoodForm, PostForm
 from django.contrib.auth.models import User
-
+from django.http import HttpResponseRedirect
 # Create your views here.
 
 @login_required(login_url='/accounts/login/')
