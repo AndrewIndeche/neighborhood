@@ -2,7 +2,7 @@
 
 
 # Neighborhood App
-The project folder contains a Django App of a neighborhood app for tracking changes that are happening in the locality.
+The project folder contains a Django project of a neighborhood APP that enables neighbors to interact through posts and get contacts for emergencies
 
 
 ## Getting Started
